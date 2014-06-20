@@ -20,8 +20,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
-        "squizlabs/php_codesniffer": "~1.5",
-        "lib-libxml": "*"
+        "squizlabs/php_codesniffer": "~1.5"
     },
     "autoload": {
         "psr-4": { "DominionEnterprises\\ColumnParser\\": "src/" }
