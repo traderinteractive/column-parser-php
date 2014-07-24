@@ -52,3 +52,17 @@ array(
     ),
 );
 ```
+
+## Contributing
+If you would like to contribute, please use our build process for any changes
+and after the build passes, send us a pull request on github!
+```sh
+./build.php
+```
+
+There is also a [docker](http://www.docker.com/)-based
+[fig](http://www.fig.sh/) configuration that will execute the build inside a
+docker container.  This is an easy way to build the application:
+```sh
+fig run build
+```
