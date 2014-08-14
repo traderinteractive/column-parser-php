@@ -2,7 +2,7 @@
 A PHP library that parses columnar data from a string, e.g. from CLI output.
 
 ## Requirements
-This library requires PHP 5.3, or newer.
+This library requires PHP 5.4, or newer.
 
 ## Installation
 This package uses [composer](https://getcomposer.org) so you can just add
