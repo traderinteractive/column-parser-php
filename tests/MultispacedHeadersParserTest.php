@@ -32,23 +32,11 @@ EOS;
     {
         $parser = new MultispacedHeadersParser($this->_sampleData);
         $this->assertSame(
-            array(
-                array(
-                    'Name' => 'James',
-                    'Age' => '17',
-                    'City of Birth' => 'San Francisco, CA',
-                ),
-                array(
-                    'Name' => 'Mary',
-                    'Age' => '18',
-                    'City of Birth' => 'Washington, D.C.',
-                ),
-                array(
-                    'Name' => 'William',
-                    'Age' => '22',
-                    'City of Birth' => 'Dallas, TX',
-                ),
-            ),
+            [
+                ['Name' => 'James', 'Age' => '17', 'City of Birth' => 'San Francisco, CA'],
+                ['Name' => 'Mary', 'Age' => '18', 'City of Birth' => 'Washington, D.C.'],
+                ['Name' => 'William', 'Age' => '22', 'City of Birth' => 'Dallas, TX'],
+            ],
             $parser->getRows()
         );
     }
@@ -61,7 +49,7 @@ EOS;
     public function getRowsFromEmptyData()
     {
         $parser = new MultispacedHeadersParser($this->_emptyData);
-        $this->assertSame(array(), $parser->getRows());
+        $this->assertSame([], $parser->getRows());
     }
 
     /**
@@ -72,7 +60,7 @@ EOS;
     public function getRowsFromOnlyHeaderData()
     {
         $parser = new MultispacedHeadersParser($this->_onlyHeaderData);
-        $this->assertSame(array(), $parser->getRows());
+        $this->assertSame([], $parser->getRows());
     }
 
     /**
@@ -83,7 +71,7 @@ EOS;
     public function getHeadersFromSampleData()
     {
         $parser = new MultispacedHeadersParser($this->_sampleData);
-        $this->assertSame(array('Name', 'Age', 'City of Birth'), $parser->getHeaders());
+        $this->assertSame(['Name', 'Age', 'City of Birth'], $parser->getHeaders());
     }
 
     /**
@@ -94,7 +82,7 @@ EOS;
     public function getHeadersFromEmptyData()
     {
         $parser = new MultispacedHeadersParser($this->_emptyData);
-        $this->assertSame(array(), $parser->getHeaders());
+        $this->assertSame([], $parser->getHeaders());
     }
 
     /**
@@ -105,6 +93,6 @@ EOS;
     public function getHeadersFromOnlyHeaderData()
     {
         $parser = new MultispacedHeadersParser($this->_onlyHeaderData);
-        $this->assertSame(array('Name', 'Age', 'City of Birth'), $parser->getHeaders());
+        $this->assertSame(['Name', 'Age', 'City of Birth'], $parser->getHeaders());
     }
 }

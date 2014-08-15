@@ -24,7 +24,7 @@ class MultispacedHeadersParser implements HeaderColumnParser
     {
         list($columnHeaders, $columnWidths) = $this->_getHeaderSpec();
 
-        $rows = array();
+        $rows = [];
         foreach (array_slice($this->_lines, 1) as $line) {
             $rows[] = array_combine($columnHeaders, $this->_getColumns($line, $columnWidths));
         }
@@ -47,14 +47,14 @@ class MultispacedHeadersParser implements HeaderColumnParser
     private function _getHeaderSpec()
     {
         if (empty($this->_lines)) {
-            return array(array(), array());
+            return [[], []];
         }
 
         preg_match_all('/(.+?)(  +|$)/', $this->_lines[0], $matches);
         $columnHeaders = $matches[1];
         $columnWidths = array_map('strlen', $matches[0]);
 
-        return array($columnHeaders, $columnWidths);
+        return [$columnHeaders, $columnWidths];
     }
 
     /**
@@ -66,7 +66,7 @@ class MultispacedHeadersParser implements HeaderColumnParser
      */
     private function _getColumns($line, array $columnWidths)
     {
-        $columns = array();
+        $columns = [];
 
         $columnStart = 0;
         $lastColumnIndex = count($columnWidths) - 1;
