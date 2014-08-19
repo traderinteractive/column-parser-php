@@ -50,7 +50,7 @@ class MultispacedHeadersParser implements HeaderColumnParser
             return [[], []];
         }
 
-        preg_match_all('/(.+?)(  +|$)/', $this->_lines[0], $matches);
+        preg_match_all('/(.+?)( {2,}|$)/', $this->_lines[0], $matches);
         $columnHeaders = $matches[1];
         $columnWidths = array_map('strlen', $matches[0]);
 

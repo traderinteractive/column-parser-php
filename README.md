@@ -1,4 +1,12 @@
 # Column Parser
+[![Build Status](http://img.shields.io/travis/dominionenterprises/column-parser-php.svg?style=flat)](https://travis-ci.org/dominionenterprises/column-parser-php)
+[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/dominionenterprises/column-parser-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/column-parser-php/)
+[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/dominionenterprises/column-parser-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/column-parser-php/)
+
+[![Latest Stable Version](http://img.shields.io/packagist/v/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
+[![Total Downloads](http://img.shields.io/packagist/dt/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
+[![License](http://img.shields.io/packagist/l/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
+
 A PHP library that parses columnar data from a string, e.g. from CLI output.
 
 ## Requirements
