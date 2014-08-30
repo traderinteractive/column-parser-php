@@ -3,8 +3,8 @@ namespace DominionEnterprises\ColumnParser;
 
 /**
  * @coversDefaultClass \DominionEnterprises\ColumnParser\MultispacedHeadersParser
- * @covers ::<private>
  * @uses \DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser
+ * @uses \DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser
  */
 class MultispacedHeadersParserTest extends \PHPUnit_Framework_TestCase
 {
