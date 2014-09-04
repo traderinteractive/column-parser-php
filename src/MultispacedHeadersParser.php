@@ -2,6 +2,7 @@
 namespace DominionEnterprises\ColumnParser;
 
 use DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser;
+use DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser;
 
 /**
  * This parses a string where there are at least two spaces between the columns.  The first line in the string is the headers.  Each header is
@@ -15,21 +16,28 @@ class MultispacedHeadersParser implements HeaderColumnParser
     private $_lines;
 
     /**
+     * @var string
+     */
+    private $_headerLine;
+
+    /**
      * @param string $contents The contents holding the data.
      */
     public function __construct($contents)
     {
-        $this->_lines = array_filter(explode("\n", $contents));
+        $allLines = array_filter(explode("\n", $contents));
+        $this->_lines = array_slice($allLines, 1);
+        $this->_headerLine = empty($allLines) ? '' : $allLines[0];
     }
 
     public function getRows()
     {
-        list($columnHeaders, $columnWidths) = $this->_getHeaderSpec();
-        $lineParser = new StrictColumnWidthsParser($columnWidths);
+        $headers = (new MultispacedParser())->getMap($this->_headerLine);
+        $lineParser = new StrictColumnWidthsParser(array_values($headers));
 
         $rows = [];
-        foreach (array_slice($this->_lines, 1) as $line) {
-            $rows[] = array_combine($columnHeaders, $lineParser->getColumns($line));
+        foreach ($this->_lines as $line) {
+            $rows[] = array_combine(array_keys($headers), $lineParser->getColumns($line));
         }
 
         return $rows;
@@ -37,26 +45,6 @@ class MultispacedHeadersParser implements HeaderColumnParser
 
     public function getHeaders()
     {
-        list($columnHeaders,) = $this->_getHeaderSpec();
-
-        return $columnHeaders;
-    }
-
-    /**
-     * Pulls out the column names and column widths of the header row.
-     *
-     * @return array Two items: the column names and the column widths.
-     */
-    private function _getHeaderSpec()
-    {
-        if (empty($this->_lines)) {
-            return [[], []];
-        }
-
-        preg_match_all('/(.+?)( {2,}|$)/', $this->_lines[0], $matches);
-        $columnHeaders = $matches[1];
-        $columnWidths = array_map('strlen', $matches[0]);
-
-        return [$columnHeaders, $columnWidths];
+        return array_keys((new MultispacedParser())->getMap($this->_headerLine));
     }
 }
