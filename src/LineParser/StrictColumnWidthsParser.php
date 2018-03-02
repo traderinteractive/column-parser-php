@@ -9,7 +9,7 @@ class StrictColumnWidthsParser
     /**
      * @var array
      */
-    private $_columnWidths;
+    private $columnWidths;
 
     /**
      * Initialize the line parser.
@@ -18,7 +18,7 @@ class StrictColumnWidthsParser
      */
     public function __construct(array $columnWidths)
     {
-        $this->_columnWidths = $columnWidths;
+        $this->columnWidths = $columnWidths;
     }
 
     /**
@@ -34,8 +34,8 @@ class StrictColumnWidthsParser
         $columns = [];
 
         $columnStart = 0;
-        $lastColumnIndex = count($this->_columnWidths) - 1;
-        foreach ($this->_columnWidths as $i => $columnWidth) {
+        $lastColumnIndex = count($this->columnWidths) - 1;
+        foreach ($this->columnWidths as $i => $columnWidth) {
             $actualWidth = $i === $lastColumnIndex ? strlen($line) : $columnWidth;
             $columns[] = trim(substr($line, $columnStart, $actualWidth));
             $columnStart += $actualWidth;
