@@ -1,5 +1,5 @@
 {
-    "name": "dominionenterprises/column-parser",
+    "name": "traderinteractive/column-parser",
     "description": "A library that parses columnar data from a string, e.g. from CLI output.",
     "keywords": ["column", "parser", "cli"],
     "authors": [
