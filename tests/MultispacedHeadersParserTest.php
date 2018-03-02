@@ -1,18 +1,18 @@
 <?php
 namespace DominionEnterprises\ColumnParser;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @coversDefaultClass \DominionEnterprises\ColumnParser\MultispacedHeadersParser
- * @uses \DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser
- * @uses \DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser
  */
-class MultispacedHeadersParserTest extends \PHPUnit_Framework_TestCase
+class MultispacedHeadersParserTest extends TestCase
 {
     private $_emptyData;
     private $_onlyHeaderData;
     private $_sampleData;
 
-    public function __construct()
+    public function setUp()
     {
         $this->_emptyData = '';
         $this->_onlyHeaderData = 'Name  Age  City of Birth';

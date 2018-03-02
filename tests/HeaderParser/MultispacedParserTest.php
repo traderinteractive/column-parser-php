@@ -1,10 +1,12 @@
 <?php
 namespace DominionEnterprises\ColumnParser\HeaderParser;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @coversDefaultClass \DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser
  */
-class MultispacedParserTest extends \PHPUnit_Framework_TestCase
+class MultispacedParserTest extends TestCase
 {
     private $_parser;
 
