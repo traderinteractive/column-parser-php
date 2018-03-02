@@ -1,8 +1,9 @@
 <?php
-namespace DominionEnterprises\ColumnParser;
 
-use DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser;
-use DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser;
+namespace TraderInteractive\ColumnParser;
+
+use TraderInteractive\ColumnParser\LineParser\StrictColumnWidthsParser;
+use TraderInteractive\ColumnParser\HeaderParser\MultispacedParser;
 
 /**
  * This parses a string where there are at least two spaces between the columns.  The first line in the string is the

@@ -1,5 +1,6 @@
 <?php
-namespace DominionEnterprises\ColumnParser\LineParser;
+
+namespace TraderInteractive\ColumnParser\LineParser;
 
 /**
  * This splits a single line based on the pre-determined column widths.

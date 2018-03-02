@@ -1,5 +1,6 @@
 <?php
-namespace DominionEnterprises\ColumnParser\HeaderParser;
+
+namespace TraderInteractive\ColumnParser\HeaderParser;
 
 /**
  * This determines the widths of each column in a header row.

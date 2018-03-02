@@ -1,10 +1,11 @@
 <?php
-namespace DominionEnterprises\ColumnParser;
+
+namespace TraderInteractive\ColumnParser;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DominionEnterprises\ColumnParser\MultispacedHeadersParser
+ * @coversDefaultClass \TraderInteractive\ColumnParser\MultispacedHeadersParser
  */
 class MultispacedHeadersParserTest extends TestCase
 {
