@@ -30,7 +30,7 @@ class StrictColumnWidthsParser
      * @param string $line The line of data.
      * @return array The data by column.
      */
-    public function getColumns($line)
+    public function getColumns(string $line) : array
     {
         $columns = [];
 

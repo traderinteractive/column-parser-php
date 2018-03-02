@@ -9,5 +9,5 @@ interface HeaderColumnParser extends ColumnParser
      *
      * @return array The column headers in the data.
      */
-    public function getHeaders();
+    public function getHeaders() : array;
 }

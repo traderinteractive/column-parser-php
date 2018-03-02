@@ -15,7 +15,7 @@ class MultispacedParser
      * @param string $line The line of data.
      * @return array A map of column header => column width.
      */
-    public function getMap($line)
+    public function getMap(string $line) : array
     {
         preg_match_all('/(.+?)( {2,}|$)/', $line, $matches);
         $columnHeaders = $matches[1];

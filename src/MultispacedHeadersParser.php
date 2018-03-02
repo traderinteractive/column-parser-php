@@ -25,14 +25,14 @@ class MultispacedHeadersParser implements HeaderColumnParser
     /**
      * @param string $contents The contents holding the data.
      */
-    public function __construct($contents)
+    public function __construct(string $contents)
     {
         $allLines = array_filter(explode("\n", $contents));
         $this->lines = array_slice($allLines, 1);
         $this->headerLine = empty($allLines) ? '' : $allLines[0];
     }
 
-    public function getRows()
+    public function getRows() : array
     {
         $headers = (new MultispacedParser())->getMap($this->headerLine);
         $lineParser = new StrictColumnWidthsParser(array_values($headers));
@@ -45,7 +45,7 @@ class MultispacedHeadersParser implements HeaderColumnParser
         return $rows;
     }
 
-    public function getHeaders()
+    public function getHeaders() : array
     {
         return array_keys((new MultispacedParser())->getMap($this->headerLine));
     }
