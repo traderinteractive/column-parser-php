@@ -72,7 +72,8 @@ array(
 If you would like to contribute, please use our build process for any changes
 and after the build passes, send us a pull request on github!
 ```sh
-./build.php
+./vendor/bin/phpunit
+./vendor/bin/phpcs
 ```
 
 There is also a [docker](http://www.docker.com/)-based
