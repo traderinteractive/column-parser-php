@@ -1,16 +1,19 @@
 <?php
-namespace DominionEnterprises\ColumnParser\HeaderParser;
+
+namespace TraderInteractive\ColumnParser\HeaderParser;
+
+use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser
+ * @coversDefaultClass \TraderInteractive\ColumnParser\HeaderParser\MultispacedParser
  */
-class MultispacedParserTest extends \PHPUnit_Framework_TestCase
+class MultispacedParserTest extends TestCase
 {
-    private $_parser;
+    private $parser;
 
     public function setUp()
     {
-        $this->_parser = new MultispacedParser();
+        $this->parser = new MultispacedParser();
     }
 
     /**
@@ -21,7 +24,10 @@ class MultispacedParserTest extends \PHPUnit_Framework_TestCase
      */
     public function getMapFromSampleLine()
     {
-        $this->assertSame(['Name' => 6, 'Age' => 5, 'City of Birth' => 13], $this->_parser->getMap('Name  Age  City of Birth'));
+        $this->assertSame(
+            ['Name' => 6, 'Age' => 5, 'City of Birth' => 13],
+            $this->parser->getMap('Name  Age  City of Birth')
+        );
     }
 
     /**
@@ -32,6 +38,6 @@ class MultispacedParserTest extends \PHPUnit_Framework_TestCase
      */
     public function getMapFromEmptyLine()
     {
-        $this->assertSame([], $this->_parser->getMap(''));
+        $this->assertSame([], $this->parser->getMap(''));
     }
 }

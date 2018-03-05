@@ -1,22 +1,23 @@
 <?php
-namespace DominionEnterprises\ColumnParser;
+
+namespace TraderInteractive\ColumnParser;
+
+use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DominionEnterprises\ColumnParser\MultispacedHeadersParser
- * @uses \DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser
- * @uses \DominionEnterprises\ColumnParser\HeaderParser\MultispacedParser
+ * @coversDefaultClass \TraderInteractive\ColumnParser\MultispacedHeadersParser
  */
-class MultispacedHeadersParserTest extends \PHPUnit_Framework_TestCase
+class MultispacedHeadersParserTest extends TestCase
 {
-    private $_emptyData;
-    private $_onlyHeaderData;
-    private $_sampleData;
+    private $emptyData;
+    private $onlyHeaderData;
+    private $sampleData;
 
-    public function __construct()
+    public function setUp()
     {
-        $this->_emptyData = '';
-        $this->_onlyHeaderData = 'Name  Age  City of Birth';
-        $this->_sampleData = <<<EOS
+        $this->emptyData = '';
+        $this->onlyHeaderData = 'Name  Age  City of Birth';
+        $this->sampleData = <<<EOS
 Name     Age  City of Birth
 James    17   San Francisco, CA
 Mary     18   Washington, D.C.
@@ -31,7 +32,7 @@ EOS;
      */
     public function getRowsFromSampleData()
     {
-        $parser = new MultispacedHeadersParser($this->_sampleData);
+        $parser = new MultispacedHeadersParser($this->sampleData);
         $this->assertSame(
             [
                 ['Name' => 'James', 'Age' => '17', 'City of Birth' => 'San Francisco, CA'],
@@ -49,7 +50,7 @@ EOS;
      */
     public function getRowsFromEmptyData()
     {
-        $parser = new MultispacedHeadersParser($this->_emptyData);
+        $parser = new MultispacedHeadersParser($this->emptyData);
         $this->assertSame([], $parser->getRows());
     }
 
@@ -60,7 +61,7 @@ EOS;
      */
     public function getRowsFromOnlyHeaderData()
     {
-        $parser = new MultispacedHeadersParser($this->_onlyHeaderData);
+        $parser = new MultispacedHeadersParser($this->onlyHeaderData);
         $this->assertSame([], $parser->getRows());
     }
 
@@ -71,7 +72,7 @@ EOS;
      */
     public function getHeadersFromSampleData()
     {
-        $parser = new MultispacedHeadersParser($this->_sampleData);
+        $parser = new MultispacedHeadersParser($this->sampleData);
         $this->assertSame(['Name', 'Age', 'City of Birth'], $parser->getHeaders());
     }
 
@@ -82,7 +83,7 @@ EOS;
      */
     public function getHeadersFromEmptyData()
     {
-        $parser = new MultispacedHeadersParser($this->_emptyData);
+        $parser = new MultispacedHeadersParser($this->emptyData);
         $this->assertSame([], $parser->getHeaders());
     }
 
@@ -93,7 +94,7 @@ EOS;
      */
     public function getHeadersFromOnlyHeaderData()
     {
-        $parser = new MultispacedHeadersParser($this->_onlyHeaderData);
+        $parser = new MultispacedHeadersParser($this->onlyHeaderData);
         $this->assertSame(['Name', 'Age', 'City of Birth'], $parser->getHeaders());
     }
 }

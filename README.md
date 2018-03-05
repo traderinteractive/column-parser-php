@@ -1,21 +1,26 @@
 # Column Parser
-[![Build Status](http://img.shields.io/travis/dominionenterprises/column-parser-php.svg?style=flat)](https://travis-ci.org/dominionenterprises/column-parser-php)
-[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/dominionenterprises/column-parser-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/column-parser-php/)
-[![Code Coverage](http://img.shields.io/coveralls/dominionenterprises/column-parser-php.svg?style=flat)](https://coveralls.io/r/dominionenterprises/column-parser-php)
+[![Build Status](https://travis-ci.org/traderinteractive/column-parser-php.svg?branch=master)](https://travis-ci.org/traderinteractive/column-parser-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/traderinteractive/column-parser-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/traderinteractive/column-parser-php/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/traderinteractive/column-parser-php/badge.svg?branch=master)](https://coveralls.io/github/traderinteractive/column-parser-php?branch=master)
 
-[![Latest Stable Version](http://img.shields.io/packagist/v/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
-[![Total Downloads](http://img.shields.io/packagist/dt/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
-[![License](http://img.shields.io/packagist/l/dominionenterprises/column-parser.svg?style=flat)](https://packagist.org/packages/dominionenterprises/column-parser)
+[![Latest Stable Version](https://poser.pugx.org/traderinteractive/column-parser/v/stable)](https://packagist.org/packages/traderinteractive/column-parser)
+[![Latest Unstable Version](https://poser.pugx.org/traderinteractive/column-parser/v/unstable)](https://packagist.org/packages/traderinteractive/column-parser)
+[![License](https://poser.pugx.org/traderinteractive/column-parser/license)](https://packagist.org/packages/traderinteractive/column-parser)
+
+[![Total Downloads](https://poser.pugx.org/traderinteractive/column-parser/downloads)](https://packagist.org/packages/traderinteractive/column-parser)
+[![Daily Downloads](https://poser.pugx.org/traderinteractive/column-parser/d/daily)](https://packagist.org/packages/traderinteractive/column-parser)
+[![Monthly Downloads](https://poser.pugx.org/traderinteractive/column-parser/d/monthly)](https://packagist.org/packages/traderinteractive/column-parser)
 
 A PHP library that parses columnar data from a string, e.g. from CLI output.
 
 ## Requirements
-This library requires PHP 5.4, or newer.
+This library requires PHP 7.0, or newer.
 
 ## Installation
-This package uses [composer](https://getcomposer.org) so you can just add
-`dominionenterprises/column-parser` as a dependency to your `composer.json`
-file.
+This package uses [composer](https://getcomposer.org) so you can just add `traderinteractive/column-parser` as a dependency to your `composer.json` file.
+```sh
+composer require traderinteractive/column-parser
+```
 
 ## Formats Supported
 This library parses input that has to conform to a supported format.
@@ -65,7 +70,8 @@ array(
 If you would like to contribute, please use our build process for any changes
 and after the build passes, send us a pull request on github!
 ```sh
-./build.php
+./vendor/bin/phpunit
+./vendor/bin/phpcs
 ```
 
 There is also a [docker](http://www.docker.com/)-based

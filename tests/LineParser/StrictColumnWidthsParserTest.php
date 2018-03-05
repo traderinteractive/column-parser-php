@@ -1,10 +1,13 @@
 <?php
-namespace DominionEnterprises\ColumnParser\LineParser;
+
+namespace TraderInteractive\ColumnParser\LineParser;
+
+use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \DominionEnterprises\ColumnParser\LineParser\StrictColumnWidthsParser
+ * @coversDefaultClass \TraderInteractive\ColumnParser\LineParser\StrictColumnWidthsParser
  */
-class StrictColumnWidthsParserTest extends \PHPUnit_Framework_TestCase
+class StrictColumnWidthsParserTest extends TestCase
 {
     /**
      * This tests the basic getColumns behavior.

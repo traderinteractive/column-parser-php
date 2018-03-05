@@ -1,5 +1,6 @@
 <?php
-namespace DominionEnterprises\ColumnParser\LineParser;
+
+namespace TraderInteractive\ColumnParser\LineParser;
 
 /**
  * This splits a single line based on the pre-determined column widths.
@@ -9,7 +10,7 @@ class StrictColumnWidthsParser
     /**
      * @var array
      */
-    private $_columnWidths;
+    private $columnWidths;
 
     /**
      * Initialize the line parser.
@@ -18,7 +19,7 @@ class StrictColumnWidthsParser
      */
     public function __construct(array $columnWidths)
     {
-        $this->_columnWidths = $columnWidths;
+        $this->columnWidths = $columnWidths;
     }
 
     /**
@@ -29,13 +30,13 @@ class StrictColumnWidthsParser
      * @param string $line The line of data.
      * @return array The data by column.
      */
-    public function getColumns($line)
+    public function getColumns(string $line) : array
     {
         $columns = [];
 
         $columnStart = 0;
-        $lastColumnIndex = count($this->_columnWidths) - 1;
-        foreach ($this->_columnWidths as $i => $columnWidth) {
+        $lastColumnIndex = count($this->columnWidths) - 1;
+        foreach ($this->columnWidths as $i => $columnWidth) {
             $actualWidth = $i === $lastColumnIndex ? strlen($line) : $columnWidth;
             $columns[] = trim(substr($line, $columnStart, $actualWidth));
             $columnStart += $actualWidth;
