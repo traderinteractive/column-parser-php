@@ -17,9 +17,7 @@ A PHP library that parses columnar data from a string, e.g. from CLI output.
 This library requires PHP 7.0, or newer.
 
 ## Installation
-This package uses [composer](https://getcomposer.org) so you can just add
-`traderinteractive/column-parser` as a dependency to your `composer.json`
-file.
+This package uses [composer](https://getcomposer.org) so you can just add `traderinteractive/column-parser` as a dependency to your `composer.json` file.
 ```sh
 composer require traderinteractive/column-parser
 ```
